@@ -58,3 +58,20 @@ mutation addThought($thoughtText: String!) {
     }
 }
 `;
+
+//add a reaction
+
+export const ADD_REACTION = gql`
+mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
+  addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+    _id
+    reactionCount
+    reactions {
+      _id
+      reactionBody
+      createdAt
+      username
+    }
+  }
+}
+`;
